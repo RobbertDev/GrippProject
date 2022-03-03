@@ -45,7 +45,7 @@ class PetController extends Controller
             $pets = Pet::all();
             return response()->json([
                 'count' => [$pets->where('type', 'dog')->count(), $pets->where('type', 'cats')->count(), $pets->where('type', 'fish')->count(), $pets->where('type', 'rabbit')->count()],
-                'item' => $pets->last()->first()
+                'item' => $pets->last()
             ]);
         } else {
             return response()->json(array('msg'=> "Something went wrong"), 200);
