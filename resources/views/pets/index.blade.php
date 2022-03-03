@@ -4,19 +4,19 @@
     <div class="flex flex-wrap sm:flex-nowrap justify-between w-full bg-blue/10 py-4">
         <div class="flex-col w-1/2 sm:1/4 justify-center items-center text-center">
             <h3 class="text-lg font-bold">Number of dogs</h3>
-            <span class="font-bold text-4xl text-blue">{{ $pets->where('type', 'dog')->count() }}</span>
+            <span id="dog-counter" class="font-bold text-4xl text-blue">{{ $pets->where('type', 'dog')->count() }}</span>
         </div>
         <div class="flex-col w-1/2 sm:1/4 justify-center items-center text-center">
             <h3 class="text-lg font-bold">Number of cats</h3>
-            <span class="font-bold text-4xl text-blue">{{ $pets->where('type', 'cat')->count() }}</span>
+            <span id="cat-counter" class="font-bold text-4xl text-blue">{{ $pets->where('type', 'cat')->count() }}</span>
         </div>
         <div class="flex-col w-1/2 sm:1/4 justify-center items-center text-center">
             <h3 class="text-lg font-bold">Number of fishes</h3>
-            <span class="font-bold text-4xl text-blue">{{ $pets->where('type', 'fish')->count() }}</span>
+            <span id="fish-counter" class="font-bold text-4xl text-blue">{{ $pets->where('type', 'fish')->count() }}</span>
         </div>
         <div class="flex-col w-1/2 sm:1/4 justify-center items-center text-center">
             <h3 class="text-lg font-bold">Number of rabbits</h3>
-            <span class="font-bold text-4xl text-blue">{{ $pets->where('type', 'rabbit')->count() }}</span>
+            <span id="rabbit-counter" class="font-bold text-4xl text-blue">{{ $pets->where('type', 'rabbit')->count() }}</span>
         </div>
     </div>
     <div class="py-16 px-4 w-full sm:w-1/2 m-auto">

@@ -43,7 +43,10 @@ class PetController extends Controller
         // Quick check if the entry succeeded.
         if($response) {
             $pets = Pet::all();
-            return response()->json(['html' => view('pets.overview',compact('pets'))->render()]);
+            return response()->json([
+                'count' => [$pets->where('type', 'dog')->count(), $pets->where('type', 'cats')->count(), $pets->where('type', 'fish')->count(), $pets->where('type', 'rabbit')->count()],
+                'item' => $pets->last()->first()
+            ]);
         } else {
             return response()->json(array('msg'=> "Something went wrong"), 200);
         }
@@ -61,7 +64,7 @@ class PetController extends Controller
 
         if($deleted) {
             $pets = Pet::all();
-            return response()->json(['html' => view('pets.overview',compact('pets'))->render()]);
+            return response()->json(['id' => $id,'html' => view('pets.overview',compact('pets'))->render()]);
         }
     }
 }
