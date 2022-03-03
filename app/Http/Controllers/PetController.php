@@ -64,7 +64,11 @@ class PetController extends Controller
 
         if($deleted) {
             $pets = Pet::all();
-            return response()->json(['id' => $id,'html' => view('pets.overview',compact('pets'))->render()]);
+            return response()->json([
+                'id' => $id,
+                'count' => [$pets->where('type', 'dog')->count(), $pets->where('type', 'cats')->count(), $pets->where('type', 'fish')->count(), $pets->where('type', 'rabbit')->count()],
+                'html' => view('pets.overview',compact('pets'))->render()
+            ]);
         }
     }
 }

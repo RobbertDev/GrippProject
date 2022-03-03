@@ -38,6 +38,11 @@ $( document ).ready(function() {
             url: '/pets/'+$(this).attr("pet-id"),
             success: function (data) {
                 if(typeof data.html !== 'undefined') {
+                    $('#dog-counter').html(data.count[0]);
+                    $('#cat-counter').html(data.count[1]);
+                    $('#fish-counter').html(data.count[2]);
+                    $('#rabbit-counter').html(data.count[3]);
+
                     $('#pet-'+data.id).remove();
                 }
             }
